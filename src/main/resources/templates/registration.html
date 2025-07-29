@@ -1,0 +1,158 @@
+<html th:replace="~{base::layout(~{::main})}">
+  <body>
+    <main>
+      <div
+        class="row py-5"
+        style="
+          background-image: url('../images/download.jpeg');
+          background-size: cover;
+          background-repeat: no-repeat;
+        "
+      >
+        <div class="col-sm-12 bg-dark py-5 bg-opacity-50">
+          <h1 class="text-center text-white fw-bold">Patient Registration</h1>
+        </div>
+      </div>
+
+      <div class="container py-5">
+        <div class="card-style">
+          <h2 class="form-title">Sign Up</h2>
+          <input type="hidden" id="msg" th:if="${msg}" th:value="${msg}" />
+          <form method="post" th:object="${userDto}">
+            <!-- Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input
+                th:field="*{name}"
+                type="text"
+                class="form-control"
+                placeholder="Patient name"
+                required
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input
+                th:field="*{email}"
+                type="email"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <!-- Contact -->
+            <div class="mb-3">
+              <label for="contactNumber" class="form-label"
+                >Contact Number</label
+              >
+              <input
+                th:field="*{contactNumber}"
+                type="text"
+                class="form-control"
+                maxlength="10"
+                pattern="^[0-9]{10}$"
+                title="Please enter a 10-digit mobile number"
+                required
+              />
+            </div>
+
+            <!-- Age -->
+            <div class="mb-3">
+              <label for="age" class="form-label">Age</label>
+              <input
+                th:field="*{age}"
+                type="number"
+                class="form-control"
+                min="0"
+                required
+              />
+            </div>
+
+            <!-- Address -->
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <textarea
+                th:field="*{address}"
+                class="form-control"
+                rows="2"
+              ></textarea>
+            </div>
+
+            <!-- Gender -->
+            <div class="mb-3">
+              <label for="gender" class="form-label">Gender</label>
+              <select th:field="*{gender}" class="form-select" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Aadhar -->
+            <div class="mb-3">
+              <label for="aadharNumber" class="form-label">Aadhar Number</label>
+              <input
+                th:field="*{aadharNumber}"
+                type="text"
+                class="form-control"
+              />
+            </div>
+
+            <!-- Specialization -->
+            <!-- <div class="mb-3">
+              <label for="specialization" class="form-label">
+                Specialization (Doctor only)
+              </label>
+              <input
+                th:field="*{specialization}"
+                type="text"
+                class="form-control"
+              />
+            </div> -->
+
+            <!-- Available Time -->
+            <!-- <div class="mb-3">
+              <label for="avaliableTime" class="form-label"
+                >Available Time</label
+              >
+              <input
+                th:field="*{avaliableTime}"
+                type="text"
+                class="form-control"
+              />
+            </div> -->
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                th:field="*{password}"
+                type="password"
+                class="form-control"
+                minlength="6"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+
+            <!-- Already have an account -->
+            <div class="footer-link">
+              Already have an account? <a href="/login">Login here</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script>
+        var msg = document.getElementById("msg")
+        if(msg.value!=""){
+          alert(msg.value);
+        }
+      </script>
+    </main>
+  </body>
+</html>
