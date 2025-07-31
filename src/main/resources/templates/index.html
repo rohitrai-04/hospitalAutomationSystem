@@ -1,9 +1,464 @@
-<html   th:replace="~{base :: layout(~{::main})}">
+<html th:replace="~{base :: layout(~{::main})}">
+  <body>
+    <main>
+      <!-- slider start -->
+      <div class="row">
+        <div class="col-sm-12 mySlider p-0">
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="images/blur-hospital.jpg"
+                  class="d-block w-100 h-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+          </div>
+          <div id="sliderBar" class="d-flex align-items-center px-3">
+            <div class="input-group flex-nowrap" style="position: relative">
+              <input
+                type="text"
+                class="form-control rounded-5 border-0 ps-3"
+                placeholder="Search for Doctors and Specialities"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+                style="
+                  background-color: #f04e30;
+                  padding: 13px 0px;
+                  outline: none;
+                "
+              />
+            </div>
+            <div id="searchIcon">
+              <img src="images/search.svg" height="20px" alt="" />
+            </div>
+          </div>
+          <div class="row experianceBar w-100">
+            <div class="col-sm-10 mx-auto bg-white rounded-4">
+              <div class="row">
+                <div
+                  class="col-sm-3 py-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <h2 class="m-0">300+</h2>
+                  <p class="m-0 p-0">Experienced Doctor</p>
+                </div>
+                <div
+                  class="col-sm-3 py-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <h2 class="m-0">900+</h2>
+                  <p class="m-0 p-0">Beds</p>
+                </div>
+                <div
+                  class="col-sm-3 py-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <h2 class="m-0">500+</h2>
+                  <p class="m-0 p-0">Trained Staff</p>
+                </div>
+                <div
+                  class="col-sm-3 py-3 d-flex justify-content-center align-items-center flex-column"
+                >
+                  <h2 class="m-0">20+</h2>
+                  <p class="m-0 p-0">Superspecialities</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slider End -->
 
-<body>
-	<main>
-		This is Index
-	</main>
-</body>
+      <!-- About seaction and filter section start -->
+      <div class="row pt-5 aboutSection bg-white">
+        <div class="col-sm-10 pt-5 mx-auto">
+          <!-- About section start -->
+          <div class="row py-5">
+            <div class="col-sm-4 pb-5">
+              <h3>Medanta Super Speciality Hospital, Lucknow</h3>
+              <div class="d-flex gap-1 arrowContainer">
+                <p>Get Directions</p>
+                <div class="myArrow">
+                  <img src="images/fwarrow.png" height="9px" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <p>
+                Spread across an area of 12.58 acres, Medanta Lucknow is one of
+                the largest multi-super-specialty hospitals in Uttar Pradesh.
+                Built with the aim to provide highest standard of tertiary
+                healthcare within the state and to the neighbouring regions, the
+                hospital brings together internationally acclaimed doctors,
+                exceptionally trained nurses and paramedics, best-in-class
+                technology and state-of-the-art infrastructure to create an
+                ecosystem of excellence that delivers world-class,
+                patient-centric, intergrated and affordable healthcare.
+              </p>
+            </div>
+          </div>
 
+          <!-- About Section end  -->
+          <div class="row bg-white">
+            <div class="col-sm-4">
+              <h3>Specialities</h3>
+              <h1>An Ecosystem for Clinical Excellence</h1>
+            </div>
+            <div class="col-sm-4">
+              <div class="card border-0 border-end border-1">
+                <div
+                  class="row align-items-center border-1 border-bottom py-3 SpecialitiesContainer"
+                >
+                  <div class="col-sm-3">
+                    <img
+                      src="images/heart.png"
+                      height="35px"
+                      width="35px"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-sm-7 pt-2"><p>Cardiac Care</p></div>
+                  <div class="col-sm-2 pt-2"><p>></p></div>
+                </div>
+                <div
+                  class="row align-items-center border-1 border-bottom py-3 SpecialitiesContainer"
+                >
+                  <div class="col-sm-3">
+                    <img
+                      src="images/cancer.png"
+                      height="35px"
+                      width="35px"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-sm-7 pt-2"><p>Cancer Care</p></div>
+                  <div class="col-sm-2 pt-2"><p>></p></div>
+                </div>
+                <div
+                  class="row align-items-center border-1 border-bottom py-3 SpecialitiesContainer"
+                >
+                  <div class="col-sm-3">
+                    <img
+                      src="images/artificial-intelligence.png"
+                      height="35px"
+                      width="35px"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-sm-7 pt-2"><p>Neurosciences</p></div>
+                  <div class="col-sm-2 pt-2"><p>></p></div>
+                </div>
+                <div
+                  class="row align-items-center border-1 border-bottom py-3 SpecialitiesContainer"
+                >
+                  <div class="col-sm-3">
+                    <img
+                      src="images/body.png"
+                      height="35px"
+                      width="35px"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-sm-7 pt-2"><p>Gastrosciences</p></div>
+                  <div class="col-sm-2 pt-2"><p>></p></div>
+                </div>
+                <div
+                  class="row align-items-center border-1 border-bottom py-3 SpecialitiesContainer"
+                >
+                  <div class="col-sm-3">
+                    <img
+                      src="images/bones.png"
+                      height="35px"
+                      width="35px"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-sm-7 pt-2"><p>Orthopaedics</p></div>
+                  <div class="col-sm-2 pt-2"><p>></p></div>
+                </div>
+                <div
+                  class="row align-items-center border-1 border-bottom py-3 SpecialitiesContainer"
+                >
+                  <div class="col-sm-3">
+                    <img
+                      src="images/heart.png"
+                      height="35px"
+                      width="35px"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-sm-7 pt-2"><p>Cardiac Care</p></div>
+                  <div class="col-sm-2 pt-2"><p>></p></div>
+                </div>
+
+                <div class="d-flex gap-1 arrowContainer py-3">
+                  <p>View All Speciality</p>
+                  <div class="myArrow">
+                    <img src="images/fwarrow.png" height="9px" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="p-1">
+                <div class="d-flex">
+                  <button class="filter-type active fw-lighter">
+                    Ailments
+                  </button>
+                  <button class="filter-type fw-lighter">Treatments</button>
+                  <button class="filter-type fw-lighter">Technologies</button>
+                </div>
+
+                <div class="alphabet-buttons mt-4 py-5" id="alphabet-container">
+                  <!-- Alphabet buttons will be injected by JS -->
+                </div>
+
+                <div class="d-flex gap-1 arrowContainer py-5 ps-3">
+                  <p>View All Ailments</p>
+                  <div class="myArrow">
+                    <img src="images/fwarrow.png" height="9px" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- About seaction and filter section start -->
+
+      <!-- Doctor Discription  start-->
+      <div class="row doctorBg">
+        <div class="col-sm-8 mx-auto">
+          <h3 class="text-center">Doctors, Pioneers, Life Savers</h3>
+          <p class="mt-3 text-center fw-lighter">
+            Our superspecialist doctors provide the highest quality of care
+            through a team-based, doctor-led model. Trained at some of the
+            world's most renowned institutions, our highly experienced doctors
+            are distinguished experts in their respective specialities. Our
+            doctors work full-time and exclusively across Medanta hospitals. In
+            addition to offering superspecialised care in their own field, the
+            Medanta organisational structure enables every doctor to help create
+            a culture of collaboration and multispecialty care integration.
+          </p>
+        </div>
+
+        <img src="images/doc.webp" alt="" class="w-100 p-0" />
+      </div>
+      <!-- Doctor Discription end -->
+
+      <!-- Model of care start -->
+      <h3 class="text-center">PGI Model Of Care</h3>
+      <h4 class="text-center mt-4">
+        Exceptional clinical <br />
+        talent
+      </h4>
+      <div class="d-flex gap-1 arrowContainer justify-content-center">
+        <p>Know More</p>
+        <div class="myArrow">
+          <img src="images/fwarrow.png" height="9px" alt="" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8 mx-auto d-flex justify-content-center">
+          <div class="card rounded-circle p-4 circleCont mt-4">
+            <img
+              src="images/img2.webp"
+              alt=""
+              class="h-100 w-100 rounded-circle"
+            />
+            <div class="ball_1"></div>
+            <div class="ballText-2">
+              <h4>
+                Trust-based <br />
+                compassionate care
+              </h4>
+              <div class="d-flex gap-1 arrowContainer justify-content-center">
+                <p>Know More</p>
+                <div class="myArrow">
+                  <img src="images/fwarrow.png" height="9px" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="ball_2"></div>
+            <div class="ballText-3">
+              <h4>
+                World-class <br />
+                infrastructure
+              </h4>
+              <div class="d-flex gap-1 arrowContainer justify-content-center">
+                <p>Know More</p>
+                <div class="myArrow">
+                  <img src="images/fwarrow.png" height="9px" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="ball_3"></div>
+            <div class="ballText-4">
+              <h4>
+                Caring systems <br />
+                and processes
+              </h4>
+              <div class="d-flex gap-1 arrowContainer justify-content-center">
+                <p>Know More</p>
+                <div class="myArrow">
+                  <img src="images/fwarrow.png" height="9px" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="ball_4"></div>
+            <div class="ballText-5">
+              <h4>
+                Latest high-end <br />
+                technology
+              </h4>
+              <div class="d-flex gap-1 arrowContainer justify-content-center">
+                <p>Know More</p>
+                <div class="myArrow">
+                  <img src="images/fwarrow.png" height="9px" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="ball_5"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Model of care end -->
+
+      <!-- Service Start  -->
+
+
+      <div class="carousel-container">
+        <div class="container">
+          <div
+            id="servicesCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in">
+                      <div class="service-image opinion-image">
+                        <img src="images/service1.jpg" class="h-100 w-100" alt="">
+                      </div>
+                      <h3 class="service-title">Second Opinion</h3>
+                      <p class="service-description">
+                        Confirm diagnosis and take informed decision about
+                        treatment plan with some of India's top experts
+                      </p>
+                      <a href="#" class="know-more-btn">
+                        Know More <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <i class="fas fa-user-md service-icon"></i>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in">
+                      <div class="service-image medicine-image"></div>
+                      <h3 class="service-title">Buy Medicine</h3>
+                      <p class="service-description">
+                        Recover without worrying about going out to buy reliable
+                        medication; get them delivered to your doorstep
+                      </p>
+                      <a href="#" class="know-more-btn">
+                        Know More <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <i class="fas fa-pills service-icon"></i>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card fade-in">
+                      <div class="service-image labs-image"></div>
+                      <h3 class="service-title">Labs and Diagnostics</h3>
+                      <p class="service-description">
+                        Medanta Labs aims to take the benefit of its superior
+                        technology, infrastructure and expertise to all
+                      </p>
+                      <a href="#" class="know-more-btn">
+                        Know More <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <i class="fas fa-flask service-icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                      <div class="service-image health-image">
+                        <img src="images/service2.jpg" class="h-100 w-100" alt="">
+                      </div>
+                      <h3 class="service-title">Health Check</h3>
+                      <p class="service-description">
+                        Take charge of your well-being with a health experience
+                        customised for you
+                      </p>
+                      <a href="#" class="know-more-btn">
+                        Know More <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <i class="fas fa-heartbeat service-icon"></i>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                      <div class="service-image telemedicine-image">
+                        <img src="images/tele.jpg" class="h-100 w-100" alt="">
+                      </div>
+                      <h3 class="service-title">Telemedicine</h3>
+                      <p class="service-description">
+                        Consult with our expert doctors from the comfort of your
+                        home through video consultation
+                      </p>
+                      <a href="#" class="know-more-btn">
+                        Know More <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <i class="fas fa-video service-icon"></i>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card">
+                      <div class="service-image emergency-image"></div>
+                      <h3 class="service-title">Emergency Care</h3>
+                      <p class="service-description">
+                        24/7 emergency services with state-of-the-art facilities
+                        and expert medical professionals
+                      </p>
+                      <a href="#" class="know-more-btn">
+                        Know More <i class="fas fa-arrow-right"></i>
+                      </a>
+                      <i class="fas fa-ambulance service-icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="carousel-controls">
+              <button
+                class="carousel-btn"
+                type="button"
+                data-bs-target="#servicesCarousel"
+                data-bs-slide="prev"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button
+                class="carousel-btn"
+                type="button"
+                data-bs-target="#servicesCarousel"
+                data-bs-slide="next"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

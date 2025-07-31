@@ -1,0 +1,103 @@
+<html th:replace="~{base::layout(~{::main})}">
+  <body>
+    <main>
+      <div class="container mt-5">
+        <h2 class="mb-4">Get in Touch / Enquiry Form</h2>
+        <div th:if="${enqMsg}" class="alert alert-info" role="alert">
+          <p th:text="${enqMsg}"></p>
+        </div>
+        <input type="hidden" th:if="${enqMsg}" th:value="${enqMsg}"  id="enquiryMsg"/>
+        <form method="post" th:object="${enquiry}">
+          <!-- Name -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input
+              th:field="${enquiry.name}"
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+
+          <!-- Gender -->
+          <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select
+              th:field="${enquiry.gender}"
+              class="form-select"
+              name="gender"
+            >
+              <option value="Select Gender">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Contact Number -->
+          <div class="mb-3">
+            <label for="contactNo" class="form-label">Contact Number</label>
+            <input
+              th.field="${enquiry.contactNo}"
+              type="text"
+              class="form-control"
+              id="contactNo"
+              name="contactNo"
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input
+              th.field="${enquiry.email}"
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+
+          <!-- Subject -->
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input
+              th.field="${enquiry.subject}"
+              type="text"
+              class="form-control"
+              id="subject"
+              name="subject"
+            />
+          </div>
+
+          <!-- Message -->
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              th:field="${enquiry.message}"
+              class="form-control"
+              id="message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+        </form>
+      </div>
+
+      <script>
+        const enqMsg = document.getElementById("enquiryMsg");
+        if(enqMsg!=""){
+            alert(enqMsg.value)
+        }
+      </script>
+    </main>
+  </body>
+</html>
