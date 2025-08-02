@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/bootstrap.bundle.js" defer></script>
+   
     <script src="js/script.js" defer></script>
     <title>PGI Virtual Care</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid " >
       <div class="row">
         <div class="col-sm-12 p-0 myNavbar">
-          <nav class="navbar navbar-expand-lg bg-body-white bg-white">
+          <nav class="navbar navbar-expand-lg bg-body-white bg-white" >
             <div class="container-fluid">
               <a class="navbar-brand" href="#">...Logo</a>
               <button
@@ -61,14 +61,14 @@
                     >
                       Login
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="z-index: 100;">
                       <li><a class="dropdown-item" href="#">Doctor Login</a></li>
                       <li>
                         <a class="dropdown-item" href="/login">Patient Login</a>
                       </li>
                       <li><hr class="dropdown-divider" /></li>
                       <li>
-                        <a class="dropdown-item" href="#"
+                        <a class="dropdown-item" href="/adminLogin"
                           >Admin Login</a
                         >
                       </li>
@@ -85,5 +85,6 @@
       </div>
       <div th:replace="${content}"></div>
     </div>
+     <script src="js/bootstrap.bundle.js"  ></script>
   </body>
 </html>

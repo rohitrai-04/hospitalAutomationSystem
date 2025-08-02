@@ -18,15 +18,19 @@ import com.myproject.PGIVirtualCare.Repository.EnquiryRepository;
 import com.myproject.PGIVirtualCare.Repository.UserRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
-     
+
     @Autowired
     private UserRepository userRepo;
 
     @Autowired
     private EnquiryRepository enquiryrepo;
+
+    @Autowired
+    private HttpSession session;
 
     @GetMapping("/")
     public String ShowIndex() {
@@ -123,5 +127,44 @@ public class MainController {
         }
         return "redirect:/contact";
     }
+
+   @GetMapping("/adminLogin")
+public String ShowAdminLogin() {
+    return "adminLogin";
+}
+
+@PostMapping("/adminLogin")
+public String AdminLogin(HttpServletRequest request, RedirectAttributes attributes, HttpSession session) {
+    try {
+        String email = request.getParameter("email").trim();
+        String password = request.getParameter("password").trim();
+
+        // System.out.println("Login attempt for email: " + email);
+
+        if (!userRepo.existsByEmail(email)) {
+            attributes.addFlashAttribute("msg", "User Doesn't Exist");
+            return "redirect:/adminLogin"; 
+        }
+        
+        Users admin = userRepo.findByEmail(email);
+        // System.out.println("Fetched admin: " + admin);
+        // System.out.println("Stored password: '" + admin.getPassword() + "'");
+        // System.out.println("Input password: '" + password + "'");
+        // System.out.println("Admin role: " + admin.getRole());
+
+        if (password.equals(admin.getPassword()) && admin.getRole().equals(userRole.ADMIN)) {
+            attributes.addFlashAttribute("msg", "Welcome to Admin Dashboard");
+            session.setAttribute("loggedInAdmin",admin);
+            return "redirect:/Admin/adminDashboard";
+            // TODO: Redirect to actual admin dashboard page instead of login page
+        } else {
+            attributes.addFlashAttribute("msg", "Invalid Id / Password");
+        }
+        return "redirect:/adminLogin";  
+    } catch (Exception e) {
+        attributes.addFlashAttribute("msg", "Error :" + e.getMessage());
+        return "redirect:/adminLogin";
+    }
+}
 
 }

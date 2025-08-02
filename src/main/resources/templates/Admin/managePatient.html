@@ -1,0 +1,62 @@
+<html th:replace="~{Admin/Adminbase::layout(~{::main})}">
+  <body>
+    <main>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h3 class="fw-bold text-center">Manage Patients</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Profile Pic</th>
+                      <th>S.No</th>
+                      <th>Patient Name</th>
+                      <th>Age</th>
+                      <th>Gender</th>
+                      <th>Email</th>
+                      <th>Contact No</th>
+                      <th>Aadhar No</th>
+                      <th>Address</th>
+                      <th>Reg Date</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="p,sno: ${patientsList}">
+                      <td>@</td>
+                      <td th:text="${sno.index}">#1</td>
+                      <td th:text="${p.name}">abcd</td>
+                      <td th:text="${age}">00</td>
+
+                      <td th:text="${p.gender}">abc</td>
+                      <td th:text="${p.email}">@gmail.com</td>
+                      <td th:text="${p.contactNumber}">9812345671</td>
+                      <td th:text="${p.aadharNumber}">XXXX XXXX XXXX</td>
+                      <td th:text="${p.address}">Unknown Address</td>
+                      <td th:text="${p.date}">DD/MM/YYYY</td>
+                      <td class="text-center">
+                        <a href="#" th:if="${p.status.name()=='PENDING'}" class="btn btn-warning btn-sm" th:text="${p.status}"></a>
+                        <a href="#" th:if="${p.status.name()== 'APPROVED'}" class="btn btn-success btn-sm" th:text="${p.status}"></a>
+                        <a href="#" th:if="${p.status.name()=='DISABLED'}" class="btn btn-danger btn-sm" th:text="${p.status}"></a>
+                       
+                      </td>
+                      <td>
+                        <a href="#" class="btn btn-success btn-sm" >Edit</a>
+                        <a href="#" class="btn btn-warning btn-sm" >Delete</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

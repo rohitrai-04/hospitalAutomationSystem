@@ -1,0 +1,14 @@
+<html th:replace="~{Admin/Adminbase::layout(~{::main})}">
+  <head>
+    <title>Admin Dashboard</title>
+  </head>
+  <body>
+  <main>
+    
+    <h1>
+      Admin Name:
+      <span th:text="${session.loggedInAdmin.name}"> </span>
+    </h1>
+  </main>
+  </body>
+</html>
