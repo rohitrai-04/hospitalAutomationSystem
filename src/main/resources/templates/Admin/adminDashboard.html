@@ -1,14 +1,143 @@
-<html th:replace="~{Admin/Adminbase::layout(~{::main})}">
-  <head>
-    <title>Admin Dashboard</title>
-  </head>
+<html th:replace="~{D}">
   <body>
-  <main>
     
-    <h1>
-      Admin Name:
-      <span th:text="${session.loggedInAdmin.name}"> </span>
-    </h1>
-  </main>
+    <main>
+      
+<div class="container my-4">
+  <div class="row g-4">
+
+    <!-- Doctors -->
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-user-md fa-2x text-primary"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Total Doctors</h6>
+            <h4 class="mb-0" th:text="${totalDoctors}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Patients -->
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-users fa-2x text-info"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Total Patients</h6>
+            <h4 class="mb-0" th:text="${totalPatients}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-user-check fa-2x text-success"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Approved Patients</h6>
+            <h4 class="mb-0" th:text="${approvedPatients}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- More patient stats -->
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-user-times fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Rejected Patients</h6>
+            <h4 class="mb-0" th:text="${rejectedPatients}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Appointments -->
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-calendar-check fa-2x text-secondary"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Total Appointments</h6>
+            <h4 class="mb-0" th:text="${totalAppointments}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-calendar-check fa-2x text-success"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Approved Appointments</h6>
+            <h4 class="mb-0" th:text="${approvedAppointments}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-calendar-times fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Rejected Appointments</h6>
+            <h4 class="mb-0" th:text="${rejectedAppointments}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-hourglass-half fa-2x text-warning"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Pending Appointments</h6>
+            <h4 class="mb-0" th:text="${pendingAppointments}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body d-flex align-items-center">
+          <div class="me-3">
+            <i class="fas fa-sync-alt fa-2x text-dark"></i>
+          </div>
+          <div>
+            <h6 class="mb-0">Rescheduled Appointments</h6>
+            <h4 class="mb-0" th:text="${rescheduledAppointments}">0</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    </main>
   </body>
 </html>

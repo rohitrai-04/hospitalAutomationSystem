@@ -1,0 +1,91 @@
+  <html th:replace="~{Patient/Patientbase::layout(~{::main})}">
+    <body>
+      <main>
+        <div class="row">
+          <div class="col-sm-10 mx-auto">
+            <div class="card">
+              <div class="card-header bg-primary">
+                <h3 class="text-center">Booked An Appointment</h3>
+              </div>
+              <div class="card-body">
+                <form method="post" th:object="${appointment}">
+                  <div class="row">
+                    <!-- <div class="col-sm-6 mt-4">
+                      <label for=""> </label>
+                      <label class="fw-bold">Select Department</label>
+                      <select
+                        name=""
+                        id=""
+                        class="form-control"
+                        required
+                        th:field="${appointment.department}"
+                      >
+                        <option value="">Select Department..........</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="orthopedics">orthopedics</option>
+                        <option value="Dermatology">Dermatology</option>
+                        <option value="General Medicine">General Medicine</option>
+                        <option value="Gynecology">Gynecology</option>
+                      </select>
+                    </div> -->
+                    <div class="col-sm-6 mt-4">
+                      <label class="fw-bold">Select Doctor</label>
+                      <select
+                        class="form-control"
+                        th:field="${appointment.doctorName}"
+                        required
+                      >
+                        <option value="">Select doctor..........</option>
+                        <option
+                          th:each="doctor : ${doctorList}"
+                          th:value="${doctor.id}"
+                          th:text="${doctor.name + ' - ' + doctor.specialization}"
+                        ></option>
+                      </select>
+                    </div>
+
+                    <div class="col-sm-6 mt-4">
+                      <label for="">Select Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        th:field="${appointment.date}"
+                        name=""
+                        id=""
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-6 mt-4">
+                      <label for="">Select Time</label>
+                      <input
+                        type="time"
+                        class="form-control"
+                        th:field="${appointment.time}"
+                        name=""
+                        id=""
+                        required
+                      />
+                    </div>
+                    <div class="col-sm-6 mt-4">
+                      <label for="">Write Symptoms </label>
+                      <textarea
+                        name=""
+                        id=""
+                        th:field="${appointment.symtoms}"
+                        class="form-control"
+                      ></textarea>
+                    </div>
+                    <div class="col-sm-12 text-center">
+                      <button type="submit">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </body>
+  </html>

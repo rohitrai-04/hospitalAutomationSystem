@@ -9,11 +9,11 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="example">
                   <thead>
                     <tr>
-                      <th>Profile Pic</th>
                       <th>S.No</th>
+                      <th>Profile Pic</th>
                       <th>Patient Name</th>
                       <th>Age</th>
                       <th>Gender</th>
@@ -28,8 +28,8 @@
                   </thead>
                   <tbody>
                     <tr th:each="p,sno: ${patientsList}">
+                      <td class="text-center" th:text="${sno.index+1}">#1</td>
                       <td>@</td>
-                      <td th:text="${sno.index}">#1</td>
                       <td th:text="${p.name}">abcd</td>
                       <td th:text="${age}">00</td>
 
@@ -39,15 +39,63 @@
                       <td th:text="${p.aadharNumber}">XXXX XXXX XXXX</td>
                       <td th:text="${p.address}">Unknown Address</td>
                       <td th:text="${p.date}">DD/MM/YYYY</td>
+                      <!-- <td class="text-center">
+                        <a
+                         href="#"
+                          th:if="${p.status.name()=='PENDING'}"
+                          class="btn btn-warning btn-sm"
+                          th:text="${p.status}"
+                        ></a>
+                        <a
+                          href="#"
+                          th:if="${p.status.name()== 'APPROVED'}"
+                          class="btn btn-success btn-sm"
+                          th:text="${p.status}"
+                        ></a>
+                        <a
+                          href="#"
+                          th:if="${p.status.name()=='DISABLED'}"
+                          class="btn btn-danger btn-sm"
+                          th:text="${p.status}"
+                        ></a>
+                      </td> -->
                       <td class="text-center">
-                        <a href="#" th:if="${p.status.name()=='PENDING'}" class="btn btn-warning btn-sm" th:text="${p.status}"></a>
-                        <a href="#" th:if="${p.status.name()== 'APPROVED'}" class="btn btn-success btn-sm" th:text="${p.status}"></a>
-                        <a href="#" th:if="${p.status.name()=='DISABLED'}" class="btn btn-danger btn-sm" th:text="${p.status}"></a>
-                       
+                        <span th:if="${p.status.name()=='PENDING'}">
+                          <a
+                            th:href="@{/Admin/ApprovePatient(id=${p.id})}"
+                            class="btn btn-success btn-sm"
+                            >Approve</a
+                          >
+                          <a
+                            th:href="@{/Admin/RejectPatient(id=${p.id})}"
+                            class="btn btn-danger btn-sm"
+                            >Reject</a
+                          >
+                        </span>
+
+                        <span th:if="${p.status.name()=='APPROVED'}">
+                          <span
+                            class="btn btn-success btn-sm disabled"
+                            th:text="${p.status}"
+                          ></span>
+                        </span>
+
+                        <span th:if="${p.status.name()=='DISABLED'}">
+                          <span
+                            class="btn btn-danger btn-sm disabled"
+                            th:text="${p.status}"
+                          ></span>
+                        </span>
                       </td>
+
                       <td>
-                        <a href="#" class="btn btn-success btn-sm" >Edit</a>
-                        <a href="#" class="btn btn-warning btn-sm" >Delete</a>
+                        <a href="#" class="btn btn-success btn-sm">Edit</a>
+                        <a
+                          th:href="@{DeletePatient(id=${p.id})}"
+                          onclick=" return confirm('Are you Sure you want to delete')"
+                          class="btn btn-warning btn-sm"
+                          >Delete</a
+                        >
                       </td>
                     </tr>
                   </tbody>

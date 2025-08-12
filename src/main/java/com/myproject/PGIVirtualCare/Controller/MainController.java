@@ -60,7 +60,7 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String PatientLogin(HttpServletRequest request, RedirectAttributes attributes) {
+    public String PatientLogin(HttpServletRequest request, RedirectAttributes attributes, HttpSession session) {
         try {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
@@ -81,10 +81,12 @@ public class MainController {
 
                 } else {
                     attributes.addFlashAttribute("msg", "Valid user");
-
+                    session.setAttribute("loggedInPatient", patient);
+                    return "redirect:/Patient/patientDashboard";
                 }
             } else {
                 attributes.addFlashAttribute("msg", "Invalid User / Password");
+
             }
             return "redirect:/login";
         } catch (Exception e) {
@@ -128,43 +130,80 @@ public class MainController {
         return "redirect:/contact";
     }
 
-   @GetMapping("/adminLogin")
-public String ShowAdminLogin() {
-    return "adminLogin";
-}
-
-@PostMapping("/adminLogin")
-public String AdminLogin(HttpServletRequest request, RedirectAttributes attributes, HttpSession session) {
-    try {
-        String email = request.getParameter("email").trim();
-        String password = request.getParameter("password").trim();
-
-        // System.out.println("Login attempt for email: " + email);
-
-        if (!userRepo.existsByEmail(email)) {
-            attributes.addFlashAttribute("msg", "User Doesn't Exist");
-            return "redirect:/adminLogin"; 
-        }
-        
-        Users admin = userRepo.findByEmail(email);
-        // System.out.println("Fetched admin: " + admin);
-        // System.out.println("Stored password: '" + admin.getPassword() + "'");
-        // System.out.println("Input password: '" + password + "'");
-        // System.out.println("Admin role: " + admin.getRole());
-
-        if (password.equals(admin.getPassword()) && admin.getRole().equals(userRole.ADMIN)) {
-            attributes.addFlashAttribute("msg", "Welcome to Admin Dashboard");
-            session.setAttribute("loggedInAdmin",admin);
-            return "redirect:/Admin/adminDashboard";
-            // TODO: Redirect to actual admin dashboard page instead of login page
-        } else {
-            attributes.addFlashAttribute("msg", "Invalid Id / Password");
-        }
-        return "redirect:/adminLogin";  
-    } catch (Exception e) {
-        attributes.addFlashAttribute("msg", "Error :" + e.getMessage());
-        return "redirect:/adminLogin";
+    @GetMapping("/adminLogin")
+    public String ShowAdminLogin() {
+        return "adminLogin";
     }
-}
+
+    @PostMapping("/adminLogin")
+    public String AdminLogin(HttpServletRequest request, RedirectAttributes attributes, HttpSession session) {
+        try {
+            String email = request.getParameter("email").trim();
+            String password = request.getParameter("password").trim();
+
+            // System.out.println("Login attempt for email: " + email);
+            if (!userRepo.existsByEmail(email)) {
+                attributes.addFlashAttribute("msg", "User Doesn't Exist");
+                return "redirect:/adminLogin";
+            }
+
+            Users admin = userRepo.findByEmail(email);
+            // System.out.println("Fetched admin: " + admin);
+            // System.out.println("Stored password: '" + admin.getPassword() + "'");
+            // System.out.println("Input password: '" + password + "'");
+            // System.out.println("Admin role: " + admin.getRole());
+
+            if (password.equals(admin.getPassword()) && admin.getRole().equals(userRole.ADMIN)) {
+              
+                session.setAttribute("loggedInAdmin", admin);
+                return "redirect:/Admin/adminDashboard";
+                // TODO: Redirect to actual admin dashboard page instead of login page
+            } else {
+                attributes.addFlashAttribute("msg", "Invalid Id / Password");
+            }
+            return "redirect:/adminLogin";
+        } catch (Exception e) {
+            attributes.addFlashAttribute("msg", "Error :" + e.getMessage());
+            return "redirect:/adminLogin";
+        }
+    }
+
+    @GetMapping("/doctorLogin")
+    public String ShowDoctorLogin() {
+        return "DoctorLogin";
+    }
+
+    @PostMapping("/doctorLogin")
+    public String DoctorLogin(HttpServletRequest request, RedirectAttributes attributes, HttpSession session) {
+        try {
+            String email = request.getParameter("email").trim();
+            String password = request.getParameter("password").trim();
+
+            // System.out.println("Login attempt for email: " + email);
+            if (!userRepo.existsByEmail(email)) {
+                attributes.addFlashAttribute("msg", "User Doesn't Exist");
+                return "redirect:/doctorLogin";
+            }
+
+            Users doctor = userRepo.findByEmail(email);
+            // System.out.println("Fetched admin: " + admin);
+            // System.out.println("Stored password: '" + admin.getPassword() + "'");
+            // System.out.println("Input password: '" + password + "'");
+            // System.out.println("Admin role: " + admin.getRole());
+
+            if (password.equals(doctor.getPassword()) && doctor.getRole().equals(userRole.DOCTOR)) {
+                attributes.addFlashAttribute("msg", "Welcome to Admin Dashboard");
+                session.setAttribute("loggedInDoctor", doctor);
+                return "redirect:/Doctor/doctorDashboard";
+                // TODO: Redirect to actual admin dashboard page instead of login page
+            } else {
+                attributes.addFlashAttribute("msg", "Invalid Id / Password");
+            }
+            return "redirect:/doctorLogin";
+        } catch (Exception e) {
+            attributes.addFlashAttribute("msg", "Error :" + e.getMessage());
+            return "redirect:/doctorLogin";
+        }
+    }
 
 }

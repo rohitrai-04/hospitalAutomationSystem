@@ -1,0 +1,55 @@
+<html th:replace="~{Doctor/Doctorbase::layout(~{::main})}">
+  <body>
+    <main>
+      <div class="row">
+        <div class="col-sm-11 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4 class="text-white fw-bold">View Appointments</h4>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <a href="" class="btn btn-success text-white"
+                    >Back To Dashboard</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>S.No</th>
+                      <th>Doctor Name</th>
+                      <th>Contact No</th>
+                      <th>Department</th>
+                      <th>Date & Time</th>
+                      <th>Symptoms</th>
+                      <th>Booked At</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="apt, srno :${appointment}">
+                      <td th:text="${srno.index+1}">#</td>
+                      <td th:text="${apt.doctorName.name}">#</td>
+                      <td th:text="${apt.doctorName.contactNumber }">#</td>
+                      <td th:text="${apt.department}">#</td>
+                      <td th:text="${apt.date + '__' + apt.time}">#</td>
+                      <td th:text="${apt.symtoms}">#</td>
+                      <td th:text="${apt.bookedAt}">#</td>
+
+                      <td th:text="${apt.Status}">#</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

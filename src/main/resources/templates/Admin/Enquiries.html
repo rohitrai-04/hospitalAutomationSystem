@@ -9,11 +9,11 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="example">
                   <thead>
                     <tr>
-                      <th>Profile Pic</th>
                       <th>S.No</th>
+                      <th>Profile Pic</th>
                       <th>Name</th>
                    
                       <th>Gender</th>
@@ -28,8 +28,8 @@
                   </thead>
                   <tbody>
                     <tr th:each="e,sno: ${enquiryList}">
+                      <td class="text-center" th:text="${sno.index+1}">#1</td>
                       <td>@</td>
-                      <td th:text="${sno.index}">#1</td>
                       <td th:text="${e.name}">abcd</td>
                    
 

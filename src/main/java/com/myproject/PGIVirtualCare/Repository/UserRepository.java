@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.myproject.PGIVirtualCare.Model.Users;
 import com.myproject.PGIVirtualCare.Model.Users.userRole;
+import com.myproject.PGIVirtualCare.Model.Users.userStatus;
 
 public interface UserRepository extends JpaRepository<Users, Long> {
 
@@ -14,5 +15,9 @@ public interface UserRepository extends JpaRepository<Users, Long> {
 	Users findByEmail(String email);
 
 	List<Users> findAllByRole(userRole patient);
+
+	long countByRole(userRole doctor);
+
+	long countByRoleAndStatus(userRole patient, userStatus approved);
 
 }

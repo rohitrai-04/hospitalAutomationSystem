@@ -1,0 +1,68 @@
+<html th:replace="~{Doctor/Doctorbase::layout(~{::main})}">
+  <body>
+    <main>
+      <div class="row">
+        <div class="col-sm-12 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary">
+              <h4 class="text-center text-white fw-bold">Manage Appointment</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>S.No</th>
+                      <th>Patient Name</th>
+                      <th>Contact No</th>
+                      <th>Department</th>
+                      <th>App.Date & Time</th>
+                      <th>Symtomps</th>
+                      <th>Booked At</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="apt , sno:${appList}">
+                      <td th:text="${sno.index+1}"></td>
+                      <td th:text="${apt.patientName.name}"></td>
+                      <td th:text="${apt.patientName.contactNumber}"></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td th:text="${apt.status}"></td>
+                      <td class="text-center">
+                        <a
+                          href=""
+                          th:if="${apt.status.name() == 'PENDING'}"
+                          class="btn btn-success btn-sm"
+                          >Approved</a
+                        >
+                        <a
+                          href=""
+                          th:if="${apt.status.name() == 'PENDING'}"
+                          class="btn btn-danger btn-sm"
+                          >Cancel</a
+                        >
+                        <a
+                          th:href="@{/writeprescription(id=${apt.id})}"
+                          th:if="${apt.status.name() == 'APPROVED'}"
+                          class="btn btn-success btn-sm"
+                          >Write prescription</a
+                        >
+
+                        <span th:if="${apt.status.name == 'REJECTED'}">❌</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
